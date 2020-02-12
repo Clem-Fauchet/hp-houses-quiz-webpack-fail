@@ -2,7 +2,7 @@ const quizHouses = [
   {
     id: 'Gryffindor',
     house: 'Gryffindor',
-    image: r,
+    image: 'g - house.png',
     quote:
       '“Gryffindor, where dwell the brave at heart! Their daring nerve and chivalry set Gryffindors apart.”',
     description:
@@ -12,7 +12,7 @@ const quizHouses = [
   {
     id: 'Slytherin',
     house: 'Slytherin',
-    image: r,
+    image: 's - house.png',
     quote:
       '“We Slytherins are brave, yes, but not stupid. For instance, given the choice, we will always choose to save our own necks”',
     description:
@@ -22,7 +22,7 @@ const quizHouses = [
   {
     id: 'Hufflepuff',
     house: 'Hufflepuff',
-    image: r,
+    image: 'h-house.png',
     quote:
       '“Hufflepuff, where they are just and loyal, those patient Hufflepuffs are true and unafraid of toil.”',
     description:
@@ -32,7 +32,7 @@ const quizHouses = [
   {
     id: 'Ravenclaw',
     house: 'Ravenclaw',
-    image: r,
+    image: 'r-house.png',
     quote:
       '“Wise old Ravenclaw, if you’ve a ready mind, where those of wit and learning will always find their kind.”',
     description:
