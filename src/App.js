@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './styles/App.scss'
+import quizQuestions from './api/quizQuestions'
+import Progress from './components/Progress'
+import Question from './components/Question'
+import AnswerOption from './components/AnswerOption'
 
 function App() {
+  useState[(state, setState)] = useState({
+    counter: 0,
+    questionId: 1,
+    question: '',
+    answerOptions: [],
+    answer: '',
+    answersCount: {},
+  })
+
+  useEffect(() => {
+    setState({
+      question: quizQuestions[1].question,
+      answerOptions: quizQuestions.map((question) => question.answers),
+    })
+  })
+
   return (
     <div className='container'>
       <div className='header'>
@@ -13,16 +33,14 @@ function App() {
       </div>
 
       <div className='quiz-container'>
-        <div className='progress'>
-          <h2>Question 1 of 15</h2>
-        </div>
-        <div className='questions'>Question 1</div>
-        <div className='answers'>
-          <span>Rep 1</span>
-          <span>Rep 2</span>
-          <span>Rep 3</span>
-          <span>Rep 4</span>
-        </div>
+        <Progress total='15' current={state.questionId} />
+        <Question question={state.question} />
+        {/* <AnswerOption
+          // key={item.content}
+          // answerContent={item.content}
+          // answerType={item.answerType}
+          answers={answerOptions}
+        /> */}
       </div>
     </div>
   )
