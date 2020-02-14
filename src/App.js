@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import './styles/App.scss'
 import quizQuestions from './api/quizQuestions'
-import Progress from './components/Progress'
-import Question from './components/Question'
-import AnswerOption from './components/AnswerOption'
+import Quiz from './components/Quiz'
 
 function App() {
   const [state, setState] = useState({
@@ -17,9 +15,31 @@ function App() {
   })
 
   useEffect(() => {
+    const shuffledArray = (array) => {
+      let currentIndex = array.length,
+        temporaryValue,
+        randomIndex
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex -= 1
+
+        temporaryValue = array[currentIndex]
+        array[currentIndex] = array[randomIndex]
+        array[randomIndex] = temporaryValue
+      }
+
+      return array
+    }
+
+    const shuffledAnswerOptions = quizQuestions.map((question) =>
+      shuffledArray(question.answers)
+    )
+
     setState({
-      question: quizQuestions[1].question,
-      answerOptions: quizQuestions.map((question) => question.answers),
+      ...state,
+      question: quizQuestions[0].question,
+      answerOptions: shuffledAnswerOptions[0],
     })
   }, [])
 
@@ -33,14 +53,13 @@ function App() {
       </div>
 
       <div className='quiz-container'>
-        <Progress total='15' current={state.questionId} />
-        <Question question={state.question} />
-        {/* <AnswerOption
-          // key={item.content}
-          // answerContent={item.content}
-          // answerType={item.answerType}
-          answers={answerOptions}
-        /> */}
+        <Quiz
+          answer={state.answer}
+          answerOptions={state.answerOptions}
+          questionId={state.questionId}
+          question={state.question}
+          questionTotal={quizQuestions.length}
+        />
       </div>
     </div>
   )

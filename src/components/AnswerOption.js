@@ -1,16 +1,16 @@
 import React from 'react'
 
-function AnswerOption(props) {
+function AnswerOption({ answerType, answerContent, answer }) {
   return (
-    <li className='answers'>
+    <li className='answer'>
       <input
         type='radio'
         className='radioButton'
-        id={props.answerType}
-        value={props.answerType}
+        id={answerType}
+        value={answerType}
       />
-      <label className='radioLabel' htmlFor={props.answerType}>
-        {/* {props.answerContent} */} {props.answer}
+      <label className='radioLabel' htmlFor={answerType}>
+        {answer}
       </label>
     </li>
   )

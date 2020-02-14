@@ -70,6 +70,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: black;
 
     .progress {
       width: 100%;
@@ -92,9 +93,10 @@ body {
       min-height: 25vh;
       background: ghostwhite;
       padding: 10px 35px;
+      
     }
 
-    .answers {
+    .answerOption {
       width: 100%;
       display: inline-flex;
       flex-wrap: wrap;

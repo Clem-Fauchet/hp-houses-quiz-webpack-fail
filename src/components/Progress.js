@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Progress(props) {
+function Progress({ questionId, total }) {
   return (
     <div className='progress'>
-      Question {props.current} / {props.total}
+      Question {questionId} / {total}
     </div>
   )
 }

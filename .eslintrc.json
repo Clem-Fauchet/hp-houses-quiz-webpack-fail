@@ -9,8 +9,7 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended", 
-        "airbnb", 
-        "airbnb/hooks"
+        "react-app"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -27,6 +26,8 @@
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 }
