@@ -7,7 +7,7 @@ import Question from './components/Question'
 import AnswerOption from './components/AnswerOption'
 
 function App() {
-  useState[(state, setState)] = useState({
+  const [state, setState] = useState({
     counter: 0,
     questionId: 1,
     question: '',
@@ -21,7 +21,7 @@ function App() {
       question: quizQuestions[1].question,
       answerOptions: quizQuestions.map((question) => question.answers),
     })
-  })
+  }, [])
 
   return (
     <div className='container'>
